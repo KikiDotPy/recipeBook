@@ -4,149 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christmas Recipe Notebook</title>
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #fff5e6;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
-    header {
-      background: #e63946;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 2em;
-      font-family: 'Georgia', serif;
-      position: relative;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 10px;
-      background: white;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .recipe {
-      border-bottom: 1px dashed #ddd;
-      padding: 15px 0;
-    }
-
-    .recipe:last-child {
-      border-bottom: none;
-    }
-
-    .recipe-title {
-      font-size: 1.5em;
-      color: #e63946;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .recipe-content {
-      display: none;
-    }
-
-    .ingredients,
-    .instructions {
-      margin: 10px 0;
-    }
-
-    .section-title {
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #333;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 0.8em;
-      color: #777;
-    }
-
-    /* Snowflake Styles */
-    .snowflake {
-      color: #fff;
-      font-size: 1.2em;
-      font-family: Arial, sans-serif;
-      position: fixed;
-      top: -10%;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(120vh);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>Christmas Recipe Notebook</header>
 
-<div class="container">
-  <!-- Recipe 1 -->
-  <div class="recipe">
-    <div class="recipe-title">Christmas Cookies from One Dough</div>
-    <div class="recipe-content">
-      <div class="ingredients">
-        <div class="section-title">Ingredients:</div>
-        <ul>
-          <li>250g butter (cold, cubed)</li>
-          <li>250g sugar</li>
-          <li>2 eggs</li>
-          <li>500g all-purpose flour</li>
-          <li>1 pinch of salt</li>
-        </ul>
+<div class="book">
+  <div class="pages" id="pages">
+    <!-- Page 1 -->
+    <div class="page">
+      <div class="page-content">
+        <h2>Christmas Cookies from One Dough</h2>
+        <div class="ingredients">
+          <div class="section-title">Ingredients:</div>
+          <ul>
+            <li>250g butter (cold, cubed)</li>
+            <li>250g sugar</li>
+            <li>2 eggs</li>
+            <li>500g all-purpose flour</li>
+            <li>1 pinch of salt</li>
+          </ul>
+        </div>
+        <div class="instructions">
+          <div class="section-title">Instructions:</div>
+          <p>
+            1. Mix butter and sugar, then add eggs. Gradually incorporate flour and salt.<br>
+            2. Chill dough for 30 minutes. Divide and flavor as desired.<br>
+            3. Shape, bake at 180°C for 10–12 minutes, and decorate.
+          </p>
+        </div>
       </div>
-      <div class="instructions">
-        <div class="section-title">Instructions:</div>
-        <p>
-          1. Mix butter and sugar, then add eggs. Gradually incorporate flour and salt.<br>
-          2. Chill dough for 30 minutes. Divide and flavor as desired.<br>
-          3. Shape, bake at 180°C for 10–12 minutes, and decorate.
-        </p>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+      <div class="page-content">
+        <h2>Fresh Pasta Dough</h2>
+        <div class="ingredients">
+          <div class="section-title">Ingredients:</div>
+          <ul>
+            <li>200g all-purpose flour</li>
+            <li>2 large eggs</li>
+          </ul>
+        </div>
+        <div class="instructions">
+          <div class="section-title">Instructions:</div>
+          <p>
+            1. Make a flour mound, crack eggs into the center, and mix.<br>
+            2. Knead for 10 minutes. Wrap and let rest for 30 minutes.
+          </p>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Recipe 2 -->
-  <div class="recipe">
-    <div class="recipe-title">Fresh Pasta Dough</div>
-    <div class="recipe-content">
-      <div class="ingredients">
-        <div class="section-title">Ingredients:</div>
-        <ul>
-          <li>200g all-purpose flour</li>
-          <li>2 large eggs</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <div class="section-title">Instructions:</div>
-        <p>
-          1. Make a flour mound, crack eggs into the center, and mix.<br>
-          2. Knead for 10 minutes. Wrap and let rest for 30 minutes.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add more recipes here -->
+<div class="buttons">
+  <button id="prevPage">Previous</button>
+  <button id="nextPage">Next</button>
 </div>
 
 <footer>
@@ -154,32 +70,25 @@
 </footer>
 
 <script>
-  // Toggle recipe visibility
-  document.querySelectorAll('.recipe-title').forEach((title) => {
-    title.addEventListener('click', () => {
-      const content = title.nextElementSibling;
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
-  });
+  const pages = document.getElementById('pages');
+  let currentPage = 0;
 
-  // Snowflake generator
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.textContent = '❄';
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-    snowflake.style.opacity = Math.random();
-    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-    document.body.appendChild(snowflake);
+  const nextPage = () => {
+    if (currentPage < 1) {
+      currentPage++;
+      pages.style.transform = `rotateY(${currentPage * -180}deg)`;
+    }
+  };
 
-    // Remove snowflake after it falls
-    setTimeout(() => {
-      snowflake.remove();
-    }, 5000);
-  }
+  const prevPage = () => {
+    if (currentPage > 0) {
+      currentPage--;
+      pages.style.transform = `rotateY(${currentPage * -180}deg)`;
+    }
+  };
 
-  setInterval(createSnowflake, 200);
+  document.getElementById('nextPage').addEventListener('click', nextPage);
+  document.getElementById('prevPage').addEventListener('click', prevPage);
 </script>
 
 </body>
