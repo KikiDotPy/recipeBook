@@ -1,97 +1,110 @@
-/* General Reset */
-* {
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
-    color: #5b3a29;
-    padding: 20px;
+    background: #f8f1e7;
+    color: #333;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
 }
-.header {
+
+.title {
+    font-size: 2em;
     text-align: center;
-    margin-bottom: 20px;
-}
-.header h1 {
-    font-family: 'Georgia', serif;
-    font-size: 2.5em;
-    color: #a94442;
-}
-.header p {
-    font-style: italic;
-    color: #d4a373;
+    margin-bottom: 1em;
+    color: #b22222;
 }
 
 .book-container {
-    position: relative;
-    perspective: 1500px;
-    width: 90%;
     max-width: 600px;
-    height: 400px;
-}
-.book {
     width: 100%;
-    height: 100%;
+}
+
+.book {
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 1s;
+    perspective: 1000px;
 }
+
+.pages {
+    display: flex;
+    transition: transform 0.6s;
+    transform-origin: 50% 50%;
+}
+
 .page {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transform-origin: right center;
-    backface-visibility: hidden;
-}
-.page.left {
-    left: 0;
-    transform: rotateY(0deg);
-}
-.page.right {
-    right: 0;
-    transform: rotateY(180deg);
-}
-.page .content {
+    width: 100%;
+    height: 300px;
+    margin: 0;
     padding: 20px;
-}
-.page h2 {
-    font-family: 'Cursive', serif;
-    color: #d95b4d;
-    margin-bottom: 10px;
-}
-.page ul {
-    list-style: none;
-    margin-top: 10px;
-}
-.page ul li {
-    margin-bottom: 5px;
-}
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-}
-.prev-page {
-    left: 0;
-}
-.next-page {
-    right: 0;
-}
-footer {
-    margin-top: 20px;
-    font-size: 0.9em;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    position: relative;
+    text-align: left;
+    font-size: 1.2em;
     color: #333;
+    transform-origin: right;
+    transform: rotateY(0deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page:before,
+.page:after {
+    content: "Certified by Kiki the former Chef";
+    position: absolute;
+    font-family: 'Cursive', sans-serif;
+    font-size: 0.8em;
+    color: #b22222;
+}
+
+.page:before {
+    top: 5px;
+    left: 5px;
+}
+
+.page:after {
+    bottom: 5px;
+    right: 5px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#page2:checked ~ .pages {
+    transform: rotateY(-180deg);
+}
+
+#page3:checked ~ .pages {
+    transform: rotateY(-360deg);
+}
+
+label {
+    display: block;
+    cursor: pointer;
+    backface-visibility: hidden;
+    transform-origin: left;
+    transition: transform 0.6s ease-in-out;
+}
+
+label:nth-child(even) {
+    transform: rotateY(180deg);
+    background: #eaeaea;
+}
+
+label:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .book-container {
+        width: 90%;
+    }
+    .page {
+        font-size: 1em;
+    }
 }
