@@ -12,42 +12,59 @@
         <h1>🎄 Christmas Recipe Book 🎄</h1>
         <p>Certified by Kiki the former Chef</p>
     </header>
-    <main class="recipe-book">
-        <section class="page active">
-            <h2>Gingerbread Cookies</h2>
-            <p>A holiday classic, full of festive spices!</p>
-            <ul>
-                <li>2 cups flour</li>
-                <li>1 tsp cinnamon</li>
-                <li>1 tsp ginger</li>
-                <li>... (other ingredients)</li>
-            </ul>
-        </section>
-        <section class="page">
-            <h2>Eggnog</h2>
-            <p>A creamy, delicious holiday drink.</p>
-            <ul>
-                <li>4 egg yolks</li>
-                <li>1 cup sugar</li>
-                <li>2 cups milk</li>
-                <li>... (other ingredients)</li>
-            </ul>
-        </section>
-        <section class="page">
-            <h2>Holiday Fruitcake</h2>
-            <p>A dense, flavorful cake packed with dried fruits and nuts.</p>
-            <ul>
-                <li>1 cup mixed nuts</li>
-                <li>1 cup dried fruits</li>
-                <li>2 cups flour</li>
-                <li>... (other ingredients)</li>
-            </ul>
-        </section>
-        <button class="next-page" aria-label="Next Page">➡</button>
-        <button class="prev-page" aria-label="Previous Page">⬅</button>
+    <main class="book-container">
+        <div class="book">
+            <div class="page left">
+                <div class="content">
+                    <h2>Gingerbread Cookies</h2>
+                    <ul>
+                        <li>2 cups flour</li>
+                        <li>1 tsp cinnamon</li>
+                        <li>1 tsp ginger</li>
+                        <li>... (other ingredients)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page right">
+                <div class="content">
+                    <h2>Eggnog</h2>
+                    <ul>
+                        <li>4 egg yolks</li>
+                        <li>1 cup sugar</li>
+                        <li>2 cups milk</li>
+                        <li>... (other ingredients)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page left">
+                <div class="content">
+                    <h2>Holiday Fruitcake</h2>
+                    <ul>
+                        <li>1 cup mixed nuts</li>
+                        <li>1 cup dried fruits</li>
+                        <li>2 cups flour</li>
+                        <li>... (other ingredients)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page right">
+                <div class="content">
+                    <h2>Mulled Wine</h2>
+                    <ul>
+                        <li>1 bottle red wine</li>
+                        <li>1 orange</li>
+                        <li>3 cinnamon sticks</li>
+                        <li>... (other ingredients)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="nav-btn prev-page" aria-label="Previous Page">⬅</button>
+        <button class="nav-btn next-page" aria-label="Next Page">➡</button>
     </main>
     <footer class="footer">
         <p>Made with ❤️ and holiday cheer!</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
