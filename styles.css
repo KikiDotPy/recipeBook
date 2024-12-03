@@ -27,29 +27,40 @@ body {
     color: #d4a373;
 }
 
-.recipe-book {
+.book-container {
+    position: relative;
+    perspective: 1500px;
     width: 90%;
     max-width: 600px;
-    position: relative;
+    height: 400px;
 }
-.page {
-    display: none;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    position: absolute;
-    top: 0;
-    left: 0;
+.book {
     width: 100%;
     height: 100%;
-    transform-origin: right center;
-    transform: rotateY(-180deg);
-    transition: transform 0.5s ease-in-out;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
 }
-.page.active {
-    display: block;
-    transform: rotateY(0);
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transform-origin: right center;
+    backface-visibility: hidden;
+}
+.page.left {
+    left: 0;
+    transform: rotateY(0deg);
+}
+.page.right {
+    right: 0;
+    transform: rotateY(180deg);
+}
+.page .content {
+    padding: 20px;
 }
 .page h2 {
     font-family: 'Cursive', serif;
@@ -63,9 +74,7 @@ body {
 .page ul li {
     margin-bottom: 5px;
 }
-
-.next-page,
-.prev-page {
+.nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -73,12 +82,13 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-}
-.next-page {
-    right: 10px;
+    z-index: 10;
 }
 .prev-page {
-    left: 10px;
+    left: 0;
+}
+.next-page {
+    right: 0;
 }
 footer {
     margin-top: 20px;
