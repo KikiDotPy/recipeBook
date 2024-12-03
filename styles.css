@@ -19,7 +19,7 @@ header {
 .book {
   width: 800px;
   height: 500px;
-  margin: 20px auto;
+  margin: 50px auto;
   perspective: 1500px;
   position: relative;
 }
@@ -29,7 +29,6 @@ header {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
 }
 
 .page {
@@ -39,19 +38,16 @@ header {
   background: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  transform-origin: left;
+  transform-origin: right;
+  transition: transform 0.8s ease;
   backface-visibility: hidden;
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
 }
 
-.page:nth-child(1) {
-  transform: rotateY(0deg);
-}
-
-.page:nth-child(2) {
-  transform: rotateY(-180deg);
+.page:nth-child(even) {
+  transform-origin: left;
 }
 
 .page-content {
