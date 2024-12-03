@@ -4,7 +4,6 @@ body {
   background: #fff5e6;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 header {
@@ -25,10 +24,23 @@ header {
 }
 
 .pages {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
   transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input#page1:checked ~ .pages {
+  transform: translateX(0%);
+}
+
+input#page2:checked ~ .pages {
+  transform: translateX(-100%);
 }
 
 .page {
@@ -38,30 +50,16 @@ header {
   background: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  transform-origin: right;
-  transition: transform 0.8s ease;
-  backface-visibility: hidden;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-}
-
-.page:nth-child(even) {
-  transform-origin: left;
+  overflow: hidden;
 }
 
 .page-content {
-  font-size: 1em;
-  color: #333;
-  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.ingredients {
-  margin-top: 10px;
-}
-
-.instructions {
-  margin-top: 20px;
+.ingredients, .instructions {
+  margin: 10px 0;
 }
 
 .section-title {
@@ -70,44 +68,6 @@ header {
   color: #e63946;
 }
 
-.buttons {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.buttons button {
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #e63946;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.3s;
-}
-
-.buttons button:hover {
-  background-color: #bf2f3a;
-}
-
-footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.8em;
-  color: #777;
-}
-
-/* Page Flip Animation */
-.page:nth-child(1) {
-  transform: rotateY(0deg);
-}
-
-.page:nth-child(2) {
-  transform: rotateY(180deg);
-}
-
-/* Certified Stamp */
 .stamp {
   position: absolute;
   top: 10px;
@@ -116,4 +76,34 @@ footer {
   color: #e63946;
   font-weight: bold;
   font-family: 'Courier New', Courier, monospace;
-  transform: rotate(-15
+  transform: rotate(-15deg);
+  border: 2px dashed #e63946;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  color: #e63946;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+label.next {
+  right: 10px;
+}
+
+label.prev {
+  left: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #777;
+}
