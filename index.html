@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christmas Recipe Book</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kiki's Christmas Recipe Book - Festive recipes to make your holidays magical!">
+    <title>Kiki's Christmas Recipe Book</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
-    <h1>🎄 Chiara's Christmas Recipe Book 🎅</h1>
-    <p>A festive collection of holiday recipes to brighten your season!</p>
-  </header>
-  
-  <main id="app">
-    <section class="welcome">
-      <p>Click on a recipe below to start exploring!</p>
-      <div id="recipe-list" class="recipe-list"></div>
-    </section>
-    <section id="recipe-detail" class="recipe-detail hidden">
-      <button id="back-button" class="back-button">⬅ Back</button>
-      <div id="recipe-content"></div>
-    </section>
-  </main>
-  
-  <footer class="footer">
-    <p>© 2024 Chiara's Team | Spread Joy & Taste! 🍪</p>
-    <button id="toggle-music">Toggle Music 🎵</button>
-  </footer>
-
-  <audio id="background-music" loop>
-    <source src="assets/music/jingle-bells.mp3" type="audio/mpeg">
-  </audio>
-
-  <script src="script.js" defer></script>
+    <header>
+        <h1>Kiki's Christmas Recipe Book</h1>
+    </header>
+    <main>
+        <section class="recipe" id="recipe1">
+            <h2>Gingerbread Cookies</h2>
+            <img src="https://via.placeholder.com/200" alt="A plate of gingerbread cookies">
+            <div class="content">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>2 cups flour</li>
+                    <li>1 tsp baking soda</li>
+                    <li>1 tsp cinnamon</li>
+                    <li>1/2 tsp ginger</li>
+                    <li>1/2 cup molasses</li>
+                    <li>1/4 cup butter</li>
+                </ul>
+                <h3>Steps</h3>
+                <ol>
+                    <li>Preheat oven to 350°F (175°C).</li>
+                    <li>Mix dry ingredients together.</li>
+                    <li>Cream butter and molasses.</li>
+                    <li>Combine wet and dry ingredients.</li>
+                    <li>Roll out dough and cut into shapes.</li>
+                    <li>Bake for 8-10 minutes.</li>
+                </ol>
+            </div>
+            <span class="stamp">Certified by Kiki</span>
+        </section>
+        <section class="recipe" id="recipe2">
+            <h2>Hot Cocoa</h2>
+            <img src="https://via.placeholder.com/200" alt="A cup of hot cocoa with marshmallows">
+            <div class="content">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>2 cups milk</li>
+                    <li>2 tbsp cocoa powder</li>
+                    <li>2 tbsp sugar</li>
+                    <li>1/4 tsp vanilla</li>
+                    <li>Pinch of salt</li>
+                </ul>
+                <h3>Steps</h3>
+                <ol>
+                    <li>Heat milk in a saucepan.</li>
+                    <li>Whisk in cocoa powder, sugar, and salt.</li>
+                    <li>Simmer for 5 minutes.</li>
+                    <li>Add vanilla and stir well.</li>
+                    <li>Serve with whipped cream or marshmallows.</li>
+                </ol>
+            </div>
+            <span class="stamp">Certified by Kiki</span>
+        </section>
+        <!-- Add more recipe sections as needed -->
+    </main>
+    <footer>
+        <p>© 2024 Kiki's Christmas Recipe Book</p>
+    </footer>
 </body>
 </html>
