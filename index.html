@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christmas Recipe Notebook</title>
   <style>
+    /* General Styles */
     body {
       font-family: 'Arial', sans-serif;
       background: #fff5e6;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     header {
@@ -19,6 +21,7 @@
       padding: 20px 10px;
       font-size: 2em;
       font-family: 'Georgia', serif;
+      position: relative;
     }
 
     .container {
@@ -42,7 +45,12 @@
     .recipe-title {
       font-size: 1.5em;
       color: #e63946;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .recipe-content {
+      display: none;
     }
 
     .ingredients,
@@ -66,6 +74,25 @@
       font-size: 0.8em;
       color: #777;
     }
+
+    /* Snowflake Styles */
+    .snowflake {
+      color: #fff;
+      font-size: 1.2em;
+      font-family: Arial, sans-serif;
+      position: fixed;
+      top: -10%;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(120vh);
+      }
+    }
   </style>
 </head>
 <body>
@@ -76,64 +103,46 @@
   <!-- Recipe 1 -->
   <div class="recipe">
     <div class="recipe-title">Christmas Cookies from One Dough</div>
-    <div class="ingredients">
-      <div class="section-title">Ingredients:</div>
-      <ul>
-        <li>250g butter (cold, cubed)</li>
-        <li>250g sugar</li>
-        <li>2 eggs</li>
-        <li>500g all-purpose flour</li>
-        <li>1 pinch of salt</li>
-      </ul>
-    </div>
-    <div class="instructions">
-      <div class="section-title">Instructions:</div>
-      <p>
-        1. Mix butter and sugar, then add eggs. Gradually incorporate flour and salt.<br>
-        2. Chill dough for 30 minutes. Divide and flavor as desired.<br>
-        3. Shape, bake at 180°C for 10–12 minutes, and decorate.
-      </p>
+    <div class="recipe-content">
+      <div class="ingredients">
+        <div class="section-title">Ingredients:</div>
+        <ul>
+          <li>250g butter (cold, cubed)</li>
+          <li>250g sugar</li>
+          <li>2 eggs</li>
+          <li>500g all-purpose flour</li>
+          <li>1 pinch of salt</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <div class="section-title">Instructions:</div>
+        <p>
+          1. Mix butter and sugar, then add eggs. Gradually incorporate flour and salt.<br>
+          2. Chill dough for 30 minutes. Divide and flavor as desired.<br>
+          3. Shape, bake at 180°C for 10–12 minutes, and decorate.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- Recipe 2 -->
   <div class="recipe">
     <div class="recipe-title">Fresh Pasta Dough</div>
-    <div class="ingredients">
-      <div class="section-title">Ingredients:</div>
-      <ul>
-        <li>200g all-purpose flour</li>
-        <li>2 large eggs</li>
-      </ul>
-    </div>
-    <div class="instructions">
-      <div class="section-title">Instructions:</div>
-      <p>
-        1. Make a flour mound, crack eggs into the center, and mix.<br>
-        2. Knead for 10 minutes. Wrap and let rest for 30 minutes.
-      </p>
-    </div>
-  </div>
-
-  <!-- Recipe 3 -->
-  <div class="recipe">
-    <div class="recipe-title">Carbonara</div>
-    <div class="ingredients">
-      <div class="section-title">Ingredients:</div>
-      <ul>
-        <li>400g spaghetti</li>
-        <li>3 egg yolks + 1 whole egg</li>
-        <li>150g guanciale</li>
-        <li>100g Pecorino Romano cheese</li>
-        <li>Black pepper to taste</li>
-      </ul>
-    </div>
-    <div class="instructions">
-      <div class="section-title">Instructions:</div>
-      <p>
-        1. Cook pasta, reserving water. Fry guanciale until crispy.<br>
-        2. Toss pasta with guanciale. Add egg-cheese mixture and pasta water to create a creamy sauce.
-      </p>
+    <div class="recipe-content">
+      <div class="ingredients">
+        <div class="section-title">Ingredients:</div>
+        <ul>
+          <li>200g all-purpose flour</li>
+          <li>2 large eggs</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <div class="section-title">Instructions:</div>
+        <p>
+          1. Make a flour mound, crack eggs into the center, and mix.<br>
+          2. Knead for 10 minutes. Wrap and let rest for 30 minutes.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -143,6 +152,35 @@
 <footer>
   Made with ♥ for the festive season!
 </footer>
+
+<script>
+  // Toggle recipe visibility
+  document.querySelectorAll('.recipe-title').forEach((title) => {
+    title.addEventListener('click', () => {
+      const content = title.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // Snowflake generator
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.textContent = '❄';
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+    snowflake.style.opacity = Math.random();
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+    document.body.appendChild(snowflake);
+
+    // Remove snowflake after it falls
+    setTimeout(() => {
+      snowflake.remove();
+    }, 5000);
+  }
+
+  setInterval(createSnowflake, 200);
+</script>
 
 </body>
 </html>
