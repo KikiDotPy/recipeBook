@@ -66,29 +66,44 @@
 </div>
 
 <footer>
-  Made with ♥ and sugar for my awesome team for the festive season!
+  Made with ♥ for the festive season!
 </footer>
 
 <script>
-  const pages = document.getElementById('pages');
+  const pages = document.querySelectorAll('.page');
   let currentPage = 0;
 
-  const nextPage = () => {
-    if (currentPage < 1) {
-      currentPage++;
-      pages.style.transform = `rotateY(${currentPage * -180}deg)`;
-    }
-  };
+  function showPage(page) {
+    pages.forEach((p, index) => {
+      if (index === page) {
+        p.style.transform = 'rotateY(0deg)';
+        p.style.zIndex = pages.length - index;
+      } else if (index < page) {
+        p.style.transform = 'rotateY(-180deg)';
+        p.style.zIndex = index;
+      } else {
+        p.style.transform = 'rotateY(180deg)';
+        p.style.zIndex = pages.length - index;
+      }
+    });
+  }
 
-  const prevPage = () => {
+  document.getElementById('nextPage').addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  });
+
+  document.getElementById('prevPage').addEventListener('click', () => {
     if (currentPage > 0) {
       currentPage--;
-      pages.style.transform = `rotateY(${currentPage * -180}deg)`;
+      showPage(currentPage);
     }
-  };
+  });
 
-  document.getElementById('nextPage').addEventListener('click', nextPage);
-  document.getElementById('prevPage').addEventListener('click', prevPage);
+  // Initialize the first page
+  showPage(currentPage);
 </script>
 
 </body>
