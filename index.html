@@ -11,9 +11,12 @@
 <header>Christmas Recipe Notebook</header>
 
 <div class="book">
-  <div class="pages" id="pages">
+  <input type="radio" name="page" id="page1" checked>
+  <input type="radio" name="page" id="page2">
+  <div class="pages">
     <!-- Page 1 -->
     <div class="page">
+      <label for="page2" class="next">→</label>
       <div class="page-content">
         <h2>Christmas Cookies from One Dough</h2>
         <div class="stamp">Certified by Kiki</div>
@@ -40,6 +43,7 @@
 
     <!-- Page 2 -->
     <div class="page">
+      <label for="page1" class="prev">←</label>
       <div class="page-content">
         <h2>Fresh Pasta Dough</h2>
         <div class="stamp">Certified by Kiki</div>
@@ -62,51 +66,9 @@
   </div>
 </div>
 
-<div class="buttons">
-  <button id="prevPage">Previous</button>
-  <button id="nextPage">Next</button>
-</div>
-
 <footer>
   Made with ♥ for the festive season!
 </footer>
-
-<script>
-  const pages = document.querySelectorAll('.page');
-  let currentPage = 0;
-
-  function showPage(page) {
-    pages.forEach((p, index) => {
-      if (index === page) {
-        p.style.transform = 'rotateY(0deg)';
-        p.style.zIndex = pages.length - index;
-      } else if (index < page) {
-        p.style.transform = 'rotateY(-180deg)';
-        p.style.zIndex = index;
-      } else {
-        p.style.transform = 'rotateY(180deg)';
-        p.style.zIndex = pages.length - index;
-      }
-    });
-  }
-
-  document.getElementById('nextPage').addEventListener('click', () => {
-    if (currentPage < pages.length - 1) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  });
-
-  document.getElementById('prevPage').addEventListener('click', () => {
-    if (currentPage > 0) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  });
-
-  // Initialize the first page
-  showPage(currentPage);
-</script>
 
 </body>
 </html>
