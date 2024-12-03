@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Recipe Book</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Recipe Book</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="book-container">
-        <h1 class="title">Kiki's Christmas Recipe Book</h1>
-        <div class="book">
-            <input type="radio" name="page" id="page1" checked>
-            <input type="radio" name="page" id="page2">
-            <input type="radio" name="page" id="page3">
-            <div class="pages">
-                <label for="page1" class="page" id="cover">
-                    <h2>Merry Christmas!</h2>
-                    <p>Welcome to Kiki's festive recipe collection!</p>
-                </label>
-                <label for="page2" class="page">
-                    <h2>Christmas Cookies</h2>
-                    <p>Ingredients:</p>
-                    <ul>
-                        <li>2 cups flour</li>
-                        <li>1 cup sugar</li>
-                        <li>1 cup butter</li>
-                        <li>1 tsp vanilla</li>
-                    </ul>
-                    <p>Instructions:</p>
-                    <p>Mix ingredients, shape, and bake at 350°F for 12 minutes.</p>
-                </label>
-                <label for="page3" class="page">
-                    <h2>Eggnog</h2>
-                    <p>Ingredients:</p>
-                    <ul>
-                        <li>2 cups milk</li>
-                        <li>1/2 cup sugar</li>
-                        <li>3 eggs</li>
-                        <li>1 tsp nutmeg</li>
-                    </ul>
-                    <p>Instructions:</p>
-                    <p>Whisk ingredients and heat gently. Chill before serving.</p>
-                </label>
-            </div>
-        </div>
-    </div>
+  <header class="header">
+    <h1>🎄 Chiara's Christmas Recipe Book 🎅</h1>
+    <p>A festive collection of holiday recipes to brighten your season!</p>
+  </header>
+  
+  <main id="app">
+    <section class="welcome">
+      <p>Click on a recipe below to start exploring!</p>
+      <div id="recipe-list" class="recipe-list"></div>
+    </section>
+    <section id="recipe-detail" class="recipe-detail hidden">
+      <button id="back-button" class="back-button">⬅ Back</button>
+      <div id="recipe-content"></div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <p>© 2024 Chiara's Team | Spread Joy & Taste! 🍪</p>
+    <button id="toggle-music">Toggle Music 🎵</button>
+  </footer>
+
+  <audio id="background-music" loop>
+    <source src="assets/music/jingle-bells.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
