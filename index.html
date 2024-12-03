@@ -1,55 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Christmas Recipe Book with festive recipes">
-    <title>Christmas Recipe Book</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="header">
-        <h1>🎄 Christmas Recipe Notebook 🎄</h1>
-    </header>
-    <main class="recipe-notebook">
-        <article class="recipe-page" id="recipe1">
-            <h2>Gingerbread Cookies</h2>
-            <ul>
-                <li>2 cups flour</li>
-                <li>1 tsp cinnamon</li>
-                <li>1 tsp ginger</li>
-                <li>1/4 cup molasses</li>
-                <li>... (other ingredients)</li>
-            </ul>
-        </article>
-        <article class="recipe-page hidden" id="recipe2">
-            <h2>Eggnog</h2>
-            <ul>
-                <li>4 egg yolks</li>
-                <li>1 cup sugar</li>
-                <li>2 cups milk</li>
-                <li>1 cup heavy cream</li>
-                <li>... (other ingredients)</li>
-            </ul>
-        </article>
-        <article class="recipe-page hidden" id="recipe3">
-            <h2>Holiday Fruitcake</h2>
-            <ul>
-                <li>1 cup mixed nuts</li>
-                <li>1 cup dried fruits</li>
-                <li>2 cups flour</li>
-                <li>1/2 tsp cinnamon</li>
-                <li>... (other ingredients)</li>
-            </ul>
-        </article>
-        <div class="controls">
-            <button id="prevPage" aria-label="Previous Recipe">⬅ Previous</button>
-            <button id="nextPage" aria-label="Next Recipe">Next ➡</button>
-        </div>
-    </main>
-    <footer class="footer">
-        <p>Certified by Kiki the former Chef</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    color: #5b3a29;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5em;
+    color: #a94442;
+}
+
+.recipe-notebook {
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.recipe-page {
+    display: none;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.6;
+    background: linear-gradient(90deg, #fffbec 10px, transparent 10px),
+                linear-gradient(#d4a373 1px, transparent 1px),
+                linear-gradient(#d4a373 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: left center, left center, right center;
+    border-radius: 5px;
+    padding: 20px;
+}
+.recipe-page h2 {
+    font-family: 'Cursive', serif;
+    color: #d95b4d;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+.recipe-page ul {
+    list-style: none;
+    margin-top: 10px;
+    padding-left: 0;
+}
+.recipe-page ul li {
+    margin-bottom: 5px;
+}
+.recipe-page:not(.hidden) {
+    display: block;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.controls button {
+    background-color: #d95b4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.controls button:hover {
+    background-color: #a94442;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    color: #d4a373;
+}
