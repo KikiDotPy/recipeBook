@@ -11,12 +11,9 @@
 <header>Christmas Recipe Notebook</header>
 
 <div class="book">
-  <input type="radio" name="page" id="page1" checked>
-  <input type="radio" name="page" id="page2">
-  <div class="pages">
+  <div class="pages" id="pages">
     <!-- Page 1 -->
     <div class="page">
-      <label for="page2" class="next">→</label>
       <div class="page-content">
         <h2>Christmas Cookies from One Dough</h2>
         <div class="stamp">Certified by Kiki</div>
@@ -43,7 +40,6 @@
 
     <!-- Page 2 -->
     <div class="page">
-      <label for="page1" class="prev">←</label>
       <div class="page-content">
         <h2>Fresh Pasta Dough</h2>
         <div class="stamp">Certified by Kiki</div>
@@ -66,9 +62,38 @@
   </div>
 </div>
 
+<div class="buttons">
+  <button id="prevPage">Previous</button>
+  <button id="nextPage">Next</button>
+</div>
+
 <footer>
   Made with ♥ for the festive season!
 </footer>
+
+<script>
+  const pages = document.getElementById('pages');
+  const totalPages = pages.children.length;
+  let currentPage = 0;
+
+  document.getElementById('nextPage').addEventListener('click', () => {
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      updatePage();
+    }
+  });
+
+  document.getElementById('prevPage').addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      updatePage();
+    }
+  });
+
+  function updatePage() {
+    pages.style.transform = `translateX(-${currentPage * 100}%)`;
+  }
+</script>
 
 </body>
 </html>
