@@ -1,113 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christmas Recipe Notebook</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Christmas Recipe Book with festive recipes">
+    <title>Christmas Recipe Book</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>Christmas Recipe Notebook</header>
-
-<div class="book">
-  <div class="book-wrapper">
-    <!-- Cover -->
-    <div class="page cover">
-      <h1>Christmas Recipe Notebook</h1>
-    </div>
-
-    <!-- Page 1 -->
-    <div class="page">
-      <div class="page-content">
-        <h2>Christmas Cookies from One Dough</h2>
-        <div class="stamp">Certified by Kiki</div>
-        <div class="ingredients">
-          <div class="section-title">Ingredients:</div>
-          <ul>
-            <li>250g butter (cold, cubed)</li>
-            <li>250g sugar</li>
-            <li>2 eggs</li>
-            <li>500g all-purpose flour</li>
-            <li>1 pinch of salt</li>
-          </ul>
-        </div>
-        <div class="instructions">
-          <div class="section-title">Instructions:</div>
-          <p>
-            1. Mix butter and sugar, then add eggs. Gradually incorporate flour and salt.<br>
-            2. Chill dough for 30 minutes. Divide and flavor as desired.<br>
-            3. Shape, bake at 180°C for 10–12 minutes, and decorate.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Page 2 -->
-    <div class="page">
-      <div class="page-content">
-        <h2>Fresh Pasta Dough</h2>
-        <div class="stamp">Certified by Kiki</div>
-        <div class="ingredients">
-          <div class="section-title">Ingredients:</div>
-          <ul>
-            <li>200g all-purpose flour</li>
-            <li>2 large eggs</li>
-          </ul>
-        </div>
-        <div class="instructions">
-          <div class="section-title">Instructions:</div>
-          <p>
-            1. Make a flour mound, crack eggs into the center, and mix.<br>
-            2. Knead for 10 minutes. Wrap and let rest for 30 minutes.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Back Cover -->
-    <div class="page cover back-cover">
-      <h1>Buon Natale!</h1>
-    </div>
-  </div>
-</div>
-
-<div class="buttons">
-  <button id="prevPage">Previous</button>
-  <button id="nextPage">Next</button>
-</div>
-
-<script>
-  const pages = document.querySelectorAll('.page');
-  let currentPage = 0;
-
-  function showPage(page) {
-    pages.forEach((p, index) => {
-      if (index <= page) {
-        p.classList.add('flipped');
-      } else {
-        p.classList.remove('flipped');
-      }
-    });
-  }
-
-  document.getElementById('nextPage').addEventListener('click', () => {
-    if (currentPage < pages.length - 1) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  });
-
-  document.getElementById('prevPage').addEventListener('click', () => {
-    if (currentPage > 0) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  });
-
-  // Initialize the first page
-  showPage(currentPage);
-</script>
-
+    <header class="header">
+        <h1>🎄 Christmas Recipe Book 🎄</h1>
+        <p>Certified by Kiki the former Chef</p>
+    </header>
+    <main class="recipe-book">
+        <section class="page active">
+            <h2>Gingerbread Cookies</h2>
+            <p>A holiday classic, full of festive spices!</p>
+            <ul>
+                <li>2 cups flour</li>
+                <li>1 tsp cinnamon</li>
+                <li>1 tsp ginger</li>
+                <li>... (other ingredients)</li>
+            </ul>
+        </section>
+        <section class="page">
+            <h2>Eggnog</h2>
+            <p>A creamy, delicious holiday drink.</p>
+            <ul>
+                <li>4 egg yolks</li>
+                <li>1 cup sugar</li>
+                <li>2 cups milk</li>
+                <li>... (other ingredients)</li>
+            </ul>
+        </section>
+        <section class="page">
+            <h2>Holiday Fruitcake</h2>
+            <p>A dense, flavorful cake packed with dried fruits and nuts.</p>
+            <ul>
+                <li>1 cup mixed nuts</li>
+                <li>1 cup dried fruits</li>
+                <li>2 cups flour</li>
+                <li>... (other ingredients)</li>
+            </ul>
+        </section>
+        <button class="next-page" aria-label="Next Page">➡</button>
+        <button class="prev-page" aria-label="Previous Page">⬅</button>
+    </main>
+    <footer class="footer">
+        <p>Made with ❤️ and holiday cheer!</p>
+    </footer>
 </body>
 </html>
