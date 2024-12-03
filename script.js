@@ -1,21 +1,14 @@
-const book = document.querySelector('.book');
-const nextBtn = document.querySelector('.next-page');
-const prevBtn = document.querySelector('.prev-page');
-
+const pages = document.querySelectorAll('.recipe-page');
 let currentPage = 0;
 
-nextBtn.addEventListener('click', () => {
-    currentPage++;
-    updateBookTransform();
+document.getElementById('nextPage').addEventListener('click', () => {
+    pages[currentPage].classList.add('hidden');
+    currentPage = (currentPage + 1) % pages.length;
+    pages[currentPage].classList.remove('hidden');
 });
 
-prevBtn.addEventListener('click', () => {
-    if (currentPage > 0) {
-        currentPage--;
-        updateBookTransform();
-    }
+document.getElementById('prevPage').addEventListener('click', () => {
+    pages[currentPage].classList.add('hidden');
+    currentPage = (currentPage - 1 + pages.length) % pages.length;
+    pages[currentPage].classList.remove('hidden');
 });
-
-function updateBookTransform() {
-    book.style.transform = `rotateY(${currentPage * -180}deg)`;
-}
