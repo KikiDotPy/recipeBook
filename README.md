@@ -28,7 +28,7 @@ If you’d like to contribute a recipe to the Recipe Book, follow these steps:
     <article class="page" aria-labelledby="recipe-title-X">
       <div class="page-content">
         <h2 id="recipe-title-X">[Recipe Name]</h2>
-        <div class="stamp" aria-hidden="true">Certified by Kiki</div>
+        <div class="stamp" aria-hidden="true">Certified by X</div>
         <div class="ingredients">
           <h3 class="section-title">Ingredients:</h3>
           <ul>
