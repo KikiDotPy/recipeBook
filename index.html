@@ -1,39 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Recipe Book</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Recipe Book</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="recipe-book">
-        <div class="recipe-page" id="page-1">
-            <div class="content">
-                <h1>Gingerbread Cookies</h1>
-                <p>Ingredients: Flour, sugar, ginger, cinnamon...</p>
-                <p>Instructions: Mix ingredients, bake...</p>
-            </div>
-            <div class="stamp">Certified by Kiki</div>
+
+<header>
+  <h1>🎄 Christmas Recipe Book 🎄</h1>
+</header>
+
+<main>
+  <section class="book" aria-label="Recipe Book">
+    <div class="pages" id="pages">
+      <!-- Page 1 -->
+      <article class="page" aria-labelledby="recipe-title-1">
+        <div class="page-content">
+          <h2 id="recipe-title-1">Struffoli</h2>
+          <div class="stamp" aria-hidden="true">Certified by Kiki</div>
+          <div class="ingredients">
+            <h3 class="section-title">Ingredients:</h3>
+            <ul>
+              <li>250g butter (cold, cubed)</li>
+              <li>250g sugar</li>
+              <li>2 eggs</li>
+              <li>500g all-purpose flour</li>
+              <li>1 pinch of salt</li>
+            </ul>
+          </div>
+          <div class="instructions">
+            <h3 class="section-title">Instructions:</h3>
+            <ol>
+              <li>Mix butter and sugar, then add eggs. Gradually incorporate flour and salt.</li>
+              <li>Chill dough for 30 minutes. Divide and flavor as desired.</li>
+              <li>Shape, bake at 180°C for 10–12 minutes, and decorate.</li>
+            </ol>
+          </div>
         </div>
-        <div class="recipe-page" id="page-2">
-            <div class="content">
-                <h1>Eggnog</h1>
-                <p>Ingredients: Milk, cream, sugar, eggs...</p>
-                <p>Instructions: Whisk, chill, serve...</p>
-            </div>
-            <div class="stamp">Certified by Kiki</div>
+      </article>
+
+      <!-- Page 2 -->
+      <article class="page" aria-labelledby="recipe-title-2">
+        <div class="page-content">
+          <h2 id="recipe-title-2">Fresh Pasta Dough</h2>
+          <div class="stamp" aria-hidden="true">Certified by Kiki</div>
+          <div class="ingredients">
+            <h3 class="section-title">Ingredients:</h3>
+            <ul>
+              <li>200g all-purpose flour</li>
+              <li>2 large eggs</li>
+            </ul>
+          </div>
+          <div class="instructions">
+            <h3 class="section-title">Instructions:</h3>
+            <ol>
+              <li>Make a flour mound, crack eggs into the center, and mix.</li>
+              <li>Knead for 10 minutes. Wrap and let rest for 30 minutes.</li>
+            </ol>
+          </div>
         </div>
-        <div class="recipe-page" id="page-3">
-            <div class="content">
-                <h1>Roast Turkey</h1>
-                <p>Ingredients: Turkey, butter, spices...</p>
-                <p>Instructions: Season, roast...</p>
-            </div>
-            <div class="stamp">Certified by Kiki</div>
+      </article>
+
+      <!-- Additional pages -->
+      <!-- Page 3 -->
+      <article class="page" aria-labelledby="recipe-title-3">
+        <div class="page-content">
+          <h2 id="recipe-title-3">Page 3</h2>
+          <div class="stamp" aria-hidden="true">Certified by Kiki</div>
+          <div class="ingredients">
+            <h3 class="section-title">Ingredients:</h3>
+            <ul>
+              <li>200g all-purpose flour</li>
+              <li>2 large eggs</li>
+            </ul>
+          </div>
+          <div class="instructions">
+            <h3 class="section-title">Instructions:</h3>
+            <ol>
+              <li>Make a flour mound, crack eggs into the center, and mix.</li>
+              <li>Knead for 10 minutes. Wrap and let rest for 30 minutes.</li>
+            </ol>
+          </div>
         </div>
-        <button class="nav-button prev" aria-label="Previous Page">&lt;</button>
-        <button class="nav-button next" aria-label="Next Page">&gt;</button>
+      </article>
+
     </div>
+  </section>
+
+  <nav class="buttons" aria-label="Page Navigation">
+    <button id="prevPage" aria-label="Previous Recipe">Previous</button>
+    <button id="nextPage" aria-label="Next Recipe">Next</button>
+  </nav>
+</main>
+
+<footer>
+  <p>Made with <span aria-hidden="true">♥</span> and sugar for my awesome team for the festive season!</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
